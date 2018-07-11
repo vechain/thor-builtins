@@ -5,7 +5,8 @@ import "./energy.sol";
 import "./authority.sol";
 import "./extension.sol";
 import "./params.sol";
-import "./voting.sol";
+import "./executor.sol";
+
 library Builtin {
     function getAuthority() internal pure returns(Authority) {
         return Authority(uint160(bytes9("Authority")));
@@ -23,8 +24,8 @@ library Builtin {
         return Params(uint160(bytes6("Params")));
     }
 
-    function getVoting() internal pure returns(Voting) {
-        return Voting(uint160(bytes6("Voting")));
+    function getExecutor() internal pure returns(Executor) {
+        return Executor(uint160(bytes6("Executor")));
     }
 
 
@@ -66,11 +67,11 @@ library Builtin {
     function $storageFor(address self, bytes32 key) internal view returns(bytes32){
         return prototype.storageFor(self, key);
     }
-    function $userPlan(address self) internal view returns(uint256 credit, uint256 recoveryRate){
-        return prototype.userPlan(self);
+    function $creditPlan(address self) internal view returns(uint256 credit, uint256 recoveryRate){
+        return prototype.creditPlan(self);
     }
-    function $setUserPlan(address self, uint256 credit, uint256 recoveryRate) internal{
-        prototype.setUserPlan(self, credit, recoveryRate);
+    function $setCreditPlan(address self, uint256 credit, uint256 recoveryRate) internal{
+        prototype.setCreditPlan(self, credit, recoveryRate);
     }
     function $isUser(address self, address user) internal view returns(bool){
         return prototype.isUser(self, user);
@@ -84,8 +85,11 @@ library Builtin {
     function $removeUser(address self, address user) internal{
         prototype.removeUser(self, user);
     }
-    function $sponsor(address self, bool yesOrNo) internal{
-        prototype.sponsor(self, yesOrNo);
+    function $sponsor(address self) internal{
+        prototype.sponsor(self);
+    }
+    function $unsponsor(address self) internal {
+        prototype.unsponsor(self);
     }
     function $isSponsor(address self, address sponsor) internal view returns(bool){
         return prototype.isSponsor(self, sponsor);
