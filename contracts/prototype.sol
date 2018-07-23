@@ -20,34 +20,34 @@ interface Prototype {
     function master(address self) external view returns(address);
 
     /// @notice 'newMaster' will be set to contract 'self' and this function only works when msg sender is the old master.
-    /// @param 'self' contract address
-    /// @param 'newMaster' new master account which will be set.
+    /// @param self contract address
+    /// @param newMaster new master account which will be set.
     function setMaster(address self, address newMaster) external;
 
-    /// @param 'self' account address which may be contract account or external account address.
-    /// @param 'blockNumber' balance will be calculated at blockNumber
+    /// @param self account address which may be contract account or external account address.
+    /// @param blockNumber balance will be calculated at blockNumber
     /// @return the amount of VET at blockNumber
     function balance(address self, uint blockNumber) external view returns(uint256);
 
-    /// @param 'self' account address which may be contract account or external account address.
-    /// @param 'blockNumber' energy will be calculated at blockNumber
+    /// @param self account address which may be contract account or external account address.
+    /// @param blockNumber energy will be calculated at blockNumber
     /// @return the amount of energy at blockNumber
     function energy(address self, uint blockNumber) external view returns(uint256);
 
-    /// @param 'self' check if address self is a contract account
+    /// @param self check if address self is a contract account
     function hasCode(address self) external view returns(bool);
 
-    /// @param 'self' contract address
+    /// @param self contract address
     /// @return value indexed by key at self storage
     function storageFor(address self, bytes32 key) external view returns(bytes32);
 
-    /// @param 'self' contract address
+    /// @param self contract address
     /// @return the creditPlan of contract 'self'
     function creditPlan(address self) external view returns(uint256 credit, uint256 recoveryRate);
 
-    /// @param 'self' contract address 
-    /// @param 'credit' original credit
-    /// @param 'recoveryRate' recovery rate of credit
+    /// @param self contract address 
+    /// @param credit original credit
+    /// @param recoveryRate recovery rate of credit
     function setCreditPlan(address self, uint256 credit, uint256 recoveryRate) external;
 
     /// @notice check if address 'user' is the user of contract 'self'.

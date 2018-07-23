@@ -36,7 +36,7 @@ library Builtin {
 
     /// @return the instance of the contract "Executor".
     function getExecutor() internal pure returns(Executor) {
-        return Executor(uint160(bytes6("Executor")));
+        return Executor(uint160(bytes8("Executor")));
     }
 
 
