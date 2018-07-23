@@ -1,0 +1,2232 @@
+{
+  "contractName": "Energy",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalBurned",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "name": "balance",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "move",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "name": "_spender",
+          "type": "address"
+        }
+      ],
+      "name": "allowance",
+      "outputs": [
+        {
+          "name": "remaining",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.23;\n\n/// @title Energy represents the sub-token in VeChainThor which conforms VIP180(ERC20) standard.\n/// The name of token is \"VeThor\" and 1 THOR equals to 1e18 wei. The main function of VeThor is to pay for the transaction fee. \n/// VeThor is generated from VET, so the initial supply of VeThor is zero in the genesis block.\n/// The growth rate of VeThor is 5000000000 wei per token(VET) per second, that is to say 1 VET will produce about 0.000432 THOR per day.\n/// The miner will charge 30 percent of transation fee and 70 percent will be burned. So the total supply of VeThor is dynamic.\n\ninterface Energy {\n    //// @return TOKEN name: \"VeThor\".\n    function name() external pure returns (string);\n\n    /// @notice 1e18 wei is equal to 1 THOR\n    /// @return 18\n    function decimals() external pure returns (uint8);\n\n    /// @return \"VTHO\"\n    function symbol() external pure returns (string);\n\n    /// @return total supply of VeThor\n    function totalSupply() external view returns (uint256);\n\n    /// @return total amount of burned VeThor\n    function totalBurned() external view returns(uint256);\n\n    /// @return amount of VeThor in account '_owner'.\n    function balanceOf(address _owner) external view returns (uint256 balance);\n\n    /// @notice transfer '_amount' of VeThor from msg sender to account '_to'\n    function transfer(address _to, uint256 _amount) external returns (bool success);\n\n    /// @notice It's not a VIP180(ERC20)'s standard method.\n    /// transfer '_amount' of VeThor from account '_from' to account '_to'\n    /// If account '_from' is an external account, '_from' must be the msg sender, or\n    /// if account '_from' is a contract account, msg sender must be the master of contract '_from'.\n    function move(address _from, address _to, uint256 _amount) external returns (bool success);\n\n    /// @notice It's a VIP180(ERC20)'s standard method.\n    function transferFrom(address _from, address _to, uint256 _amount) external returns(bool success);\n\n    /// @notice It's a VIP180(ERC20)'s standard method.\n    /// @return the remaining amount of VeThor that the '_spender' is able to withdraw from '_owner'.\n    function allowance(address _owner, address _spender)  external view returns (uint256 remaining);\n\n    /// @notice It's a VIP180(ERC20)'s standard method which means approving a '_value' to be transferred to _spender from msg sender.\n    function approve(address _spender, uint256 _value) external returns (bool success);\n}\n",
+  "sourcePath": "/Users/llyan/Documents/job/thor-builtins/contracts/energy.sol",
+  "ast": {
+    "absolutePath": "/Users/llyan/Documents/job/thor-builtins/contracts/energy.sol",
+    "exportedSymbols": {
+      "Energy": [
+        525
+      ]
+    },
+    "id": 526,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 443,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": "@title Energy represents the sub-token in VeChainThor which conforms VIP180(ERC20) standard.\n The name of token is \"VeThor\" and 1 THOR equals to 1e18 wei. The main function of VeThor is to pay for the transaction fee. \n VeThor is generated from VET, so the initial supply of VeThor is zero in the genesis block.\n The growth rate of VeThor is 5000000000 wei per token(VET) per second, that is to say 1 VET will produce about 0.000432 THOR per day.\n The miner will charge 30 percent of transation fee and 70 percent will be burned. So the total supply of VeThor is dynamic.",
+        "fullyImplemented": false,
+        "id": 525,
+        "linearizedBaseContracts": [
+          525
+        ],
+        "name": "Energy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "/ @return TOKEN name: \"VeThor\".",
+            "id": 448,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "name",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 444,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "690:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 447,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 446,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 448,
+                  "src": "716:6:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 445,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "716:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "715:8:2"
+            },
+            "scope": 525,
+            "src": "677:47:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice 1e18 wei is equal to 1 THOR\n @return 18",
+            "id": 453,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "decimals",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 449,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "810:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 452,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 451,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 453,
+                  "src": "836:5:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 450,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "836:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "835:7:2"
+            },
+            "scope": 525,
+            "src": "793:50:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@return \"VTHO\"",
+            "id": 458,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "symbol",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 454,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "887:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 457,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 456,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 458,
+                  "src": "913:6:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 455,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "913:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "912:8:2"
+            },
+            "scope": 525,
+            "src": "872:49:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@return total supply of VeThor",
+            "id": 463,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "totalSupply",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 459,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "986:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 462,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 461,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 463,
+                  "src": "1012:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 460,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1012:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1011:9:2"
+            },
+            "scope": 525,
+            "src": "966:55:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@return total amount of burned VeThor",
+            "id": 468,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "totalBurned",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 464,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1093:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 467,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 466,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 468,
+                  "src": "1118:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 465,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1118:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1117:9:2"
+            },
+            "scope": 525,
+            "src": "1073:54:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@return amount of VeThor in account '_owner'.",
+            "id": 475,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "balanceOf",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 471,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 470,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 475,
+                  "src": "1206:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 469,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1206:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1205:16:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 474,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 473,
+                  "name": "balance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 475,
+                  "src": "1245:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 472,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1245:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1244:17:2"
+            },
+            "scope": 525,
+            "src": "1187:75:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice transfer '_amount' of VeThor from msg sender to account '_to'",
+            "id": 484,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "transfer",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 480,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 477,
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 484,
+                  "src": "1364:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 476,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1364:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 479,
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 484,
+                  "src": "1377:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 478,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1377:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1363:30:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 483,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 482,
+                  "name": "success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 484,
+                  "src": "1412:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 481,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1412:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1411:14:2"
+            },
+            "scope": 525,
+            "src": "1346:80:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice It's not a VIP180(ERC20)'s standard method.\n transfer '_amount' of VeThor from account '_from' to account '_to'\n If account '_from' is an external account, '_from' must be the msg sender, or\n if account '_from' is a contract account, msg sender must be the master of contract '_from'.",
+            "id": 495,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "move",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 491,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 486,
+                  "name": "_from",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 495,
+                  "src": "1768:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 485,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1768:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 488,
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 495,
+                  "src": "1783:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 487,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1783:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 490,
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 495,
+                  "src": "1796:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 489,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1796:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1767:45:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 494,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 493,
+                  "name": "success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 495,
+                  "src": "1831:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 492,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1831:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1830:14:2"
+            },
+            "scope": 525,
+            "src": "1754:91:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice It's a VIP180(ERC20)'s standard method.",
+            "id": 506,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "transferFrom",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 502,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 497,
+                  "name": "_from",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 506,
+                  "src": "1929:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 496,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1929:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 499,
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 506,
+                  "src": "1944:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 498,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1944:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 501,
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 506,
+                  "src": "1957:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 500,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1957:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1928:45:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 505,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 504,
+                  "name": "success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 506,
+                  "src": "1991:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 503,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1991:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1990:14:2"
+            },
+            "scope": 525,
+            "src": "1907:98:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice It's a VIP180(ERC20)'s standard method.\n @return the remaining amount of VeThor that the '_spender' is able to withdraw from '_owner'.",
+            "id": 515,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "allowance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 511,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 508,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 515,
+                  "src": "2188:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 507,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2188:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 510,
+                  "name": "_spender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 515,
+                  "src": "2204:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 509,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2204:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2187:34:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 514,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 513,
+                  "name": "remaining",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 515,
+                  "src": "2246:17:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 512,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2246:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2245:19:2"
+            },
+            "scope": 525,
+            "src": "2169:96:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice It's a VIP180(ERC20)'s standard method which means approving a '_value' to be transferred to _spender from msg sender.",
+            "id": 524,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "approve",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 520,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 517,
+                  "name": "_spender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 524,
+                  "src": "2423:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 516,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2423:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 519,
+                  "name": "_value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 524,
+                  "src": "2441:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 518,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2441:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2422:34:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 523,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 522,
+                  "name": "success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 524,
+                  "src": "2475:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 521,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2475:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2474:14:2"
+            },
+            "scope": 525,
+            "src": "2406:83:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 526,
+        "src": "615:1876:2"
+      }
+    ],
+    "src": "0:2492:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/llyan/Documents/job/thor-builtins/contracts/energy.sol",
+    "exportedSymbols": {
+      "Energy": [
+        525
+      ]
+    },
+    "id": 526,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 443,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": "@title Energy represents the sub-token in VeChainThor which conforms VIP180(ERC20) standard.\n The name of token is \"VeThor\" and 1 THOR equals to 1e18 wei. The main function of VeThor is to pay for the transaction fee. \n VeThor is generated from VET, so the initial supply of VeThor is zero in the genesis block.\n The growth rate of VeThor is 5000000000 wei per token(VET) per second, that is to say 1 VET will produce about 0.000432 THOR per day.\n The miner will charge 30 percent of transation fee and 70 percent will be burned. So the total supply of VeThor is dynamic.",
+        "fullyImplemented": false,
+        "id": 525,
+        "linearizedBaseContracts": [
+          525
+        ],
+        "name": "Energy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "/ @return TOKEN name: \"VeThor\".",
+            "id": 448,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "name",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 444,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "690:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 447,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 446,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 448,
+                  "src": "716:6:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 445,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "716:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "715:8:2"
+            },
+            "scope": 525,
+            "src": "677:47:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice 1e18 wei is equal to 1 THOR\n @return 18",
+            "id": 453,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "decimals",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 449,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "810:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 452,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 451,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 453,
+                  "src": "836:5:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 450,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "836:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "835:7:2"
+            },
+            "scope": 525,
+            "src": "793:50:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@return \"VTHO\"",
+            "id": 458,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "symbol",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 454,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "887:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 457,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 456,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 458,
+                  "src": "913:6:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 455,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "913:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "912:8:2"
+            },
+            "scope": 525,
+            "src": "872:49:2",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@return total supply of VeThor",
+            "id": 463,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "totalSupply",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 459,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "986:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 462,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 461,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 463,
+                  "src": "1012:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 460,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1012:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1011:9:2"
+            },
+            "scope": 525,
+            "src": "966:55:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@return total amount of burned VeThor",
+            "id": 468,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "totalBurned",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 464,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1093:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 467,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 466,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 468,
+                  "src": "1118:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 465,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1118:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1117:9:2"
+            },
+            "scope": 525,
+            "src": "1073:54:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@return amount of VeThor in account '_owner'.",
+            "id": 475,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "balanceOf",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 471,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 470,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 475,
+                  "src": "1206:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 469,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1206:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1205:16:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 474,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 473,
+                  "name": "balance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 475,
+                  "src": "1245:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 472,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1245:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1244:17:2"
+            },
+            "scope": 525,
+            "src": "1187:75:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice transfer '_amount' of VeThor from msg sender to account '_to'",
+            "id": 484,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "transfer",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 480,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 477,
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 484,
+                  "src": "1364:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 476,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1364:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 479,
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 484,
+                  "src": "1377:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 478,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1377:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1363:30:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 483,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 482,
+                  "name": "success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 484,
+                  "src": "1412:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 481,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1412:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1411:14:2"
+            },
+            "scope": 525,
+            "src": "1346:80:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice It's not a VIP180(ERC20)'s standard method.\n transfer '_amount' of VeThor from account '_from' to account '_to'\n If account '_from' is an external account, '_from' must be the msg sender, or\n if account '_from' is a contract account, msg sender must be the master of contract '_from'.",
+            "id": 495,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "move",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 491,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 486,
+                  "name": "_from",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 495,
+                  "src": "1768:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 485,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1768:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 488,
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 495,
+                  "src": "1783:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 487,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1783:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 490,
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 495,
+                  "src": "1796:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 489,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1796:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1767:45:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 494,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 493,
+                  "name": "success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 495,
+                  "src": "1831:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 492,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1831:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1830:14:2"
+            },
+            "scope": 525,
+            "src": "1754:91:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice It's a VIP180(ERC20)'s standard method.",
+            "id": 506,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "transferFrom",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 502,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 497,
+                  "name": "_from",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 506,
+                  "src": "1929:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 496,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1929:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 499,
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 506,
+                  "src": "1944:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 498,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1944:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 501,
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 506,
+                  "src": "1957:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 500,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1957:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1928:45:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 505,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 504,
+                  "name": "success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 506,
+                  "src": "1991:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 503,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1991:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1990:14:2"
+            },
+            "scope": 525,
+            "src": "1907:98:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice It's a VIP180(ERC20)'s standard method.\n @return the remaining amount of VeThor that the '_spender' is able to withdraw from '_owner'.",
+            "id": 515,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "allowance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 511,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 508,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 515,
+                  "src": "2188:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 507,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2188:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 510,
+                  "name": "_spender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 515,
+                  "src": "2204:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 509,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2204:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2187:34:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 514,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 513,
+                  "name": "remaining",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 515,
+                  "src": "2246:17:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 512,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2246:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2245:19:2"
+            },
+            "scope": 525,
+            "src": "2169:96:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice It's a VIP180(ERC20)'s standard method which means approving a '_value' to be transferred to _spender from msg sender.",
+            "id": 524,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "approve",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 520,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 517,
+                  "name": "_spender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 524,
+                  "src": "2423:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 516,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2423:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 519,
+                  "name": "_value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 524,
+                  "src": "2441:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 518,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2441:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2422:34:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 523,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 522,
+                  "name": "success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 524,
+                  "src": "2475:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 521,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2475:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2474:14:2"
+            },
+            "scope": 525,
+            "src": "2406:83:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 526,
+        "src": "615:1876:2"
+      }
+    ],
+    "src": "0:2492:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-07-23T08:17:09.051Z"
+}

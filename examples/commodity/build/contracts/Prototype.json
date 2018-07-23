@@ -1,0 +1,3560 @@
+{
+  "contractName": "Prototype",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        }
+      ],
+      "name": "master",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "newMaster",
+          "type": "address"
+        }
+      ],
+      "name": "setMaster",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "balance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "energy",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        }
+      ],
+      "name": "hasCode",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "key",
+          "type": "bytes32"
+        }
+      ],
+      "name": "storageFor",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        }
+      ],
+      "name": "creditPlan",
+      "outputs": [
+        {
+          "name": "credit",
+          "type": "uint256"
+        },
+        {
+          "name": "recoveryRate",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "credit",
+          "type": "uint256"
+        },
+        {
+          "name": "recoveryRate",
+          "type": "uint256"
+        }
+      ],
+      "name": "setCreditPlan",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "isUser",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "userCredit",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "addUser",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "removeUser",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        }
+      ],
+      "name": "sponsor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        }
+      ],
+      "name": "unsponsor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "sponsorAddress",
+          "type": "address"
+        }
+      ],
+      "name": "isSponsor",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        },
+        {
+          "name": "sponsorAddress",
+          "type": "address"
+        }
+      ],
+      "name": "selectSponsor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "self",
+          "type": "address"
+        }
+      ],
+      "name": "currentSponsor",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.23;\n\n// Prototype is an account management model of VeChainThor.\n// In the account management model every contract has a master account, which, by default, is the creator of a contract.\n// The master account plays the role of a contract manager, which has some authorities including \n// \"setMaster\", \"setCreditPlan\", \"addUser\", \"removeUser\" and \"selectSponsor\".\n// Every contract keeps a list of users who can call the contract for free but limited by credit.\n// The user of a specific contract can be either added or removed by the contract master.\n// Although from a user's perspective the fee is free, it is paid by a sponsor of the contract.\n// Any one can be a sponser of a contract, just by calling sponsor function, and also the sponsor identity can be cancelled by calling unsponsor funtion.\n// A contract may have more than one sponsors, but only the current sponsor chosen by master need to pay the fee for the contract.\n// If the current sponsor is out of energy, master can select sponser from other sponsers candidates by calling selectSponsor function.\n// The creditPlan can be set by the master which includes credit and recoveryRate. Every user have the same original credit.\n// Every Transaction consumes some amount of credit which is equal to the fee of the Transaction, and the user can also pay the fee by itself if the gas payer is out of the credit. \n// The credit can be recovered based on recoveryRate (per block).\n\ninterface Prototype {\n    /// @param self contract address\n    /// @return master address of self\n    function master(address self) external view returns(address);\n\n    /// @notice 'newMaster' will be set to contract 'self' and this function only works when msg sender is the old master.\n    /// @param self contract address\n    /// @param newMaster new master account which will be set.\n    function setMaster(address self, address newMaster) external;\n\n    /// @param self account address which may be contract account or external account address.\n    /// @param blockNumber balance will be calculated at blockNumber\n    /// @return the amount of VET at blockNumber\n    function balance(address self, uint blockNumber) external view returns(uint256);\n\n    /// @param self account address which may be contract account or external account address.\n    /// @param blockNumber energy will be calculated at blockNumber\n    /// @return the amount of energy at blockNumber\n    function energy(address self, uint blockNumber) external view returns(uint256);\n\n    /// @param self check if address self is a contract account\n    function hasCode(address self) external view returns(bool);\n\n    /// @param self contract address\n    /// @return value indexed by key at self storage\n    function storageFor(address self, bytes32 key) external view returns(bytes32);\n\n    /// @param self contract address\n    /// @return the creditPlan of contract 'self'\n    function creditPlan(address self) external view returns(uint256 credit, uint256 recoveryRate);\n\n    /// @param self contract address \n    /// @param credit original credit\n    /// @param recoveryRate recovery rate of credit\n    function setCreditPlan(address self, uint256 credit, uint256 recoveryRate) external;\n\n    /// @notice check if address 'user' is the user of contract 'self'.\n    function isUser(address self, address user) external view returns(bool);\n\n    /// @notice return the current credit of 'user' of the contract 'self'.\n    function userCredit(address self, address user) external view returns(uint256);\n\n    /// @notice add address 'user' to the user list of a contract 'self'.\n    function addUser(address self, address user) external;\n\n    /// @notice remove 'user' from the user list of a contract 'self'.\n    function removeUser(address self, address user) external;\n\n    /// @notice msg sender volunteers to be a sponsor of the contract 'self'.\n    function sponsor(address self) external;\n \n    /// @notice msg sender removes itself from the sponsor candidates list of contract 'self'.\n    function unsponsor(address self) external;\n\n    /// @notice check if 'sponsorAddress' is the sponser of contract 'self'.\n    function isSponsor(address self, address sponsorAddress) external view returns(bool);\n\n    /// @notice select 'sponsorAddress' to be current selected sponsor of contract 'self'\n    function selectSponsor(address self, address sponsorAddress) external;  \n\n    /// @notice return current selected sponsor of contract 'self'\n    function currentSponsor(address self) external view returns(address);\n}",
+  "sourcePath": "/Users/llyan/Documents/job/thor-builtins/contracts/prototype.sol",
+  "ast": {
+    "absolutePath": "/Users/llyan/Documents/job/thor-builtins/contracts/prototype.sol",
+    "exportedSymbols": {
+      "Prototype": [
+        788
+      ]
+    },
+    "id": 789,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 656,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:6"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 788,
+        "linearizedBaseContracts": [
+          788
+        ],
+        "name": "Prototype",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@param self contract address\n @return master address of self",
+            "id": 663,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "master",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 659,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 658,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 663,
+                  "src": "1580:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 657,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1580:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1579:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 662,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 661,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 663,
+                  "src": "1616:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 660,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1616:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1615:9:6"
+            },
+            "scope": 788,
+            "src": "1564:61:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice 'newMaster' will be set to contract 'self' and this function only works when msg sender is the old master.\n @param self contract address\n @param newMaster new master account which will be set.",
+            "id": 670,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "setMaster",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 668,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 665,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 670,
+                  "src": "1873:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 664,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1873:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 667,
+                  "name": "newMaster",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 670,
+                  "src": "1887:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 666,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1887:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1872:33:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 669,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1914:0:6"
+            },
+            "scope": 788,
+            "src": "1854:61:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self account address which may be contract account or external account address.\n @param blockNumber balance will be calculated at blockNumber\n @return the amount of VET at blockNumber",
+            "id": 679,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "balance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 675,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 672,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 679,
+                  "src": "2151:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 671,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2151:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 674,
+                  "name": "blockNumber",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 679,
+                  "src": "2165:16:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 673,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2165:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2150:32:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 678,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 677,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 679,
+                  "src": "2205:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 676,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2205:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2204:9:6"
+            },
+            "scope": 788,
+            "src": "2134:80:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self account address which may be contract account or external account address.\n @param blockNumber energy will be calculated at blockNumber\n @return the amount of energy at blockNumber",
+            "id": 688,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "energy",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 684,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 681,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 688,
+                  "src": "2451:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 680,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2451:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 683,
+                  "name": "blockNumber",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 688,
+                  "src": "2465:16:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 682,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2465:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2450:32:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 687,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 686,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 688,
+                  "src": "2505:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 685,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2505:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2504:9:6"
+            },
+            "scope": 788,
+            "src": "2435:79:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self check if address self is a contract account",
+            "id": 695,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "hasCode",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 691,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 690,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 695,
+                  "src": "2601:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 689,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2601:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2600:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 694,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 693,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 695,
+                  "src": "2637:4:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 692,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2637:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2636:6:6"
+            },
+            "scope": 788,
+            "src": "2584:59:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self contract address\n @return value indexed by key at self storage",
+            "id": 704,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "storageFor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 700,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 697,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 704,
+                  "src": "2759:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 696,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2759:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 699,
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 704,
+                  "src": "2773:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 698,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2773:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2758:27:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 703,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 702,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 704,
+                  "src": "2808:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 701,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2808:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2807:9:6"
+            },
+            "scope": 788,
+            "src": "2739:78:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self contract address\n @return the creditPlan of contract 'self'",
+            "id": 713,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "creditPlan",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 707,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 706,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 713,
+                  "src": "2930:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 705,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2930:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2929:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 712,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 709,
+                  "name": "credit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 713,
+                  "src": "2966:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 708,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2966:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 711,
+                  "name": "recoveryRate",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 713,
+                  "src": "2982:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 710,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2982:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2965:38:6"
+            },
+            "scope": 788,
+            "src": "2910:94:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self contract address \n @param credit original credit\n @param recoveryRate recovery rate of credit",
+            "id": 722,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "setCreditPlan",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 720,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 715,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 722,
+                  "src": "3161:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 714,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3161:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 717,
+                  "name": "credit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 722,
+                  "src": "3175:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 716,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3175:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 719,
+                  "name": "recoveryRate",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 722,
+                  "src": "3191:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 718,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3191:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3160:52:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 721,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3221:0:6"
+            },
+            "scope": 788,
+            "src": "3138:84:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice check if address 'user' is the user of contract 'self'.",
+            "id": 731,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "isUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 727,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 724,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 731,
+                  "src": "3316:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 723,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3316:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 726,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 731,
+                  "src": "3330:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 725,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3330:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3315:28:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 730,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 729,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 731,
+                  "src": "3366:4:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 728,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3366:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3365:6:6"
+            },
+            "scope": 788,
+            "src": "3300:72:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice return the current credit of 'user' of the contract 'self'.",
+            "id": 740,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "userCredit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 736,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 733,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 740,
+                  "src": "3474:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 732,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3474:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 735,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 740,
+                  "src": "3488:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 734,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3488:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3473:28:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 739,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 738,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 740,
+                  "src": "3524:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 737,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3524:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3523:9:6"
+            },
+            "scope": 788,
+            "src": "3454:79:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice add address 'user' to the user list of a contract 'self'.",
+            "id": 747,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "addUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 745,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 742,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 747,
+                  "src": "3630:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 741,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3630:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 744,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 747,
+                  "src": "3644:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 743,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3644:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3629:28:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 746,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3666:0:6"
+            },
+            "scope": 788,
+            "src": "3613:54:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice remove 'user' from the user list of a contract 'self'.",
+            "id": 754,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "removeUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 752,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 749,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 754,
+                  "src": "3764:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 748,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3764:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 751,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 754,
+                  "src": "3778:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 750,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3778:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3763:28:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 753,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3800:0:6"
+            },
+            "scope": 788,
+            "src": "3744:57:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice msg sender volunteers to be a sponsor of the contract 'self'.",
+            "id": 759,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "sponsor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 757,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 756,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 759,
+                  "src": "3902:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 755,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3902:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3901:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 758,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3924:0:6"
+            },
+            "scope": 788,
+            "src": "3885:40:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice msg sender removes itself from the sponsor candidates list of contract 'self'.",
+            "id": 764,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "unsponsor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 762,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 761,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 764,
+                  "src": "4046:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 760,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4046:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4045:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 763,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4068:0:6"
+            },
+            "scope": 788,
+            "src": "4027:42:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice check if 'sponsorAddress' is the sponser of contract 'self'.",
+            "id": 773,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "isSponsor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 769,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 766,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 773,
+                  "src": "4171:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 765,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4171:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 768,
+                  "name": "sponsorAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 773,
+                  "src": "4185:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 767,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4185:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4170:38:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 772,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 771,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 773,
+                  "src": "4231:4:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 770,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4231:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4230:6:6"
+            },
+            "scope": 788,
+            "src": "4152:85:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice select 'sponsorAddress' to be current selected sponsor of contract 'self'",
+            "id": 780,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "selectSponsor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 778,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 775,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 780,
+                  "src": "4356:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 774,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4356:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 777,
+                  "name": "sponsorAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 780,
+                  "src": "4370:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 776,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4370:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4355:38:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 779,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4402:0:6"
+            },
+            "scope": 788,
+            "src": "4333:70:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice return current selected sponsor of contract 'self'",
+            "id": 787,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "currentSponsor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 783,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 782,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 787,
+                  "src": "4502:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 781,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4502:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4501:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 786,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 785,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 787,
+                  "src": "4538:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 784,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4538:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4537:9:6"
+            },
+            "scope": 788,
+            "src": "4478:69:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 789,
+        "src": "1462:3087:6"
+      }
+    ],
+    "src": "0:4549:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/llyan/Documents/job/thor-builtins/contracts/prototype.sol",
+    "exportedSymbols": {
+      "Prototype": [
+        788
+      ]
+    },
+    "id": 789,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 656,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:6"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 788,
+        "linearizedBaseContracts": [
+          788
+        ],
+        "name": "Prototype",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@param self contract address\n @return master address of self",
+            "id": 663,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "master",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 659,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 658,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 663,
+                  "src": "1580:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 657,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1580:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1579:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 662,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 661,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 663,
+                  "src": "1616:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 660,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1616:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1615:9:6"
+            },
+            "scope": 788,
+            "src": "1564:61:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice 'newMaster' will be set to contract 'self' and this function only works when msg sender is the old master.\n @param self contract address\n @param newMaster new master account which will be set.",
+            "id": 670,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "setMaster",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 668,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 665,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 670,
+                  "src": "1873:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 664,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1873:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 667,
+                  "name": "newMaster",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 670,
+                  "src": "1887:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 666,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1887:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1872:33:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 669,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1914:0:6"
+            },
+            "scope": 788,
+            "src": "1854:61:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self account address which may be contract account or external account address.\n @param blockNumber balance will be calculated at blockNumber\n @return the amount of VET at blockNumber",
+            "id": 679,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "balance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 675,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 672,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 679,
+                  "src": "2151:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 671,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2151:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 674,
+                  "name": "blockNumber",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 679,
+                  "src": "2165:16:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 673,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2165:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2150:32:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 678,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 677,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 679,
+                  "src": "2205:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 676,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2205:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2204:9:6"
+            },
+            "scope": 788,
+            "src": "2134:80:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self account address which may be contract account or external account address.\n @param blockNumber energy will be calculated at blockNumber\n @return the amount of energy at blockNumber",
+            "id": 688,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "energy",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 684,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 681,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 688,
+                  "src": "2451:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 680,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2451:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 683,
+                  "name": "blockNumber",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 688,
+                  "src": "2465:16:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 682,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2465:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2450:32:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 687,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 686,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 688,
+                  "src": "2505:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 685,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2505:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2504:9:6"
+            },
+            "scope": 788,
+            "src": "2435:79:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self check if address self is a contract account",
+            "id": 695,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "hasCode",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 691,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 690,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 695,
+                  "src": "2601:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 689,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2601:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2600:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 694,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 693,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 695,
+                  "src": "2637:4:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 692,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2637:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2636:6:6"
+            },
+            "scope": 788,
+            "src": "2584:59:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self contract address\n @return value indexed by key at self storage",
+            "id": 704,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "storageFor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 700,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 697,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 704,
+                  "src": "2759:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 696,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2759:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 699,
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 704,
+                  "src": "2773:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 698,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2773:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2758:27:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 703,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 702,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 704,
+                  "src": "2808:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 701,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2808:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2807:9:6"
+            },
+            "scope": 788,
+            "src": "2739:78:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self contract address\n @return the creditPlan of contract 'self'",
+            "id": 713,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "creditPlan",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 707,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 706,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 713,
+                  "src": "2930:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 705,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2930:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2929:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 712,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 709,
+                  "name": "credit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 713,
+                  "src": "2966:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 708,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2966:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 711,
+                  "name": "recoveryRate",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 713,
+                  "src": "2982:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 710,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2982:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2965:38:6"
+            },
+            "scope": 788,
+            "src": "2910:94:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@param self contract address \n @param credit original credit\n @param recoveryRate recovery rate of credit",
+            "id": 722,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "setCreditPlan",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 720,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 715,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 722,
+                  "src": "3161:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 714,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3161:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 717,
+                  "name": "credit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 722,
+                  "src": "3175:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 716,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3175:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 719,
+                  "name": "recoveryRate",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 722,
+                  "src": "3191:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 718,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3191:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3160:52:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 721,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3221:0:6"
+            },
+            "scope": 788,
+            "src": "3138:84:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice check if address 'user' is the user of contract 'self'.",
+            "id": 731,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "isUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 727,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 724,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 731,
+                  "src": "3316:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 723,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3316:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 726,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 731,
+                  "src": "3330:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 725,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3330:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3315:28:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 730,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 729,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 731,
+                  "src": "3366:4:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 728,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3366:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3365:6:6"
+            },
+            "scope": 788,
+            "src": "3300:72:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice return the current credit of 'user' of the contract 'self'.",
+            "id": 740,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "userCredit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 736,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 733,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 740,
+                  "src": "3474:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 732,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3474:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 735,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 740,
+                  "src": "3488:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 734,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3488:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3473:28:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 739,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 738,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 740,
+                  "src": "3524:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 737,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3524:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3523:9:6"
+            },
+            "scope": 788,
+            "src": "3454:79:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice add address 'user' to the user list of a contract 'self'.",
+            "id": 747,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "addUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 745,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 742,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 747,
+                  "src": "3630:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 741,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3630:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 744,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 747,
+                  "src": "3644:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 743,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3644:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3629:28:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 746,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3666:0:6"
+            },
+            "scope": 788,
+            "src": "3613:54:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice remove 'user' from the user list of a contract 'self'.",
+            "id": 754,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "removeUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 752,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 749,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 754,
+                  "src": "3764:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 748,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3764:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 751,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 754,
+                  "src": "3778:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 750,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3778:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3763:28:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 753,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3800:0:6"
+            },
+            "scope": 788,
+            "src": "3744:57:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice msg sender volunteers to be a sponsor of the contract 'self'.",
+            "id": 759,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "sponsor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 757,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 756,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 759,
+                  "src": "3902:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 755,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3902:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3901:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 758,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3924:0:6"
+            },
+            "scope": 788,
+            "src": "3885:40:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice msg sender removes itself from the sponsor candidates list of contract 'self'.",
+            "id": 764,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "unsponsor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 762,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 761,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 764,
+                  "src": "4046:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 760,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4046:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4045:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 763,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4068:0:6"
+            },
+            "scope": 788,
+            "src": "4027:42:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice check if 'sponsorAddress' is the sponser of contract 'self'.",
+            "id": 773,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "isSponsor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 769,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 766,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 773,
+                  "src": "4171:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 765,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4171:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 768,
+                  "name": "sponsorAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 773,
+                  "src": "4185:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 767,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4185:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4170:38:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 772,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 771,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 773,
+                  "src": "4231:4:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 770,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4231:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4230:6:6"
+            },
+            "scope": 788,
+            "src": "4152:85:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice select 'sponsorAddress' to be current selected sponsor of contract 'self'",
+            "id": 780,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "selectSponsor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 778,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 775,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 780,
+                  "src": "4356:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 774,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4356:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 777,
+                  "name": "sponsorAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 780,
+                  "src": "4370:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 776,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4370:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4355:38:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 779,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4402:0:6"
+            },
+            "scope": 788,
+            "src": "4333:70:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice return current selected sponsor of contract 'self'",
+            "id": 787,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "currentSponsor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 783,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 782,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 787,
+                  "src": "4502:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 781,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4502:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4501:14:6"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 786,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 785,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 787,
+                  "src": "4538:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 784,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4538:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4537:9:6"
+            },
+            "scope": 788,
+            "src": "4478:69:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 789,
+        "src": "1462:3087:6"
+      }
+    ],
+    "src": "0:4549:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-07-23T08:17:09.052Z"
+}
