@@ -96,6 +96,6 @@ contract CommodityInfo {
     /// @notice To check if the commodity is expired.
     function isCommodityExpired(bytes id) public view returns(bool) {
         bytes32 key = extension.blake2b256(id);
-        return Commodity[key].productionDate + Commodity[key].shelfLife <= now;
+        return Commodity[key].productionDate + Commodity[key].shelfLife >= now;
     }
 }
