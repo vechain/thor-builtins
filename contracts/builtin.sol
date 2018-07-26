@@ -119,16 +119,6 @@ library Builtin {
         prototype.removeUser(self, user);
     }
 
-    /// @notice msg sender volunteers to be a sponsor of the contract 'self'.
-    function $sponsor(address self) internal{
-        prototype.sponsor(self);
-    }
-
-    /// @notice msg sender removes itself from the sponsor candidates list of contract 'self'.
-    function $unsponsor(address self) internal {
-        prototype.unsponsor(self);
-    }
-
     /// @notice check if 'sponsorAddress' is the sponser of contract 'self'.
     function $isSponsor(address self, address sponsor) internal view returns(bool){
         return prototype.isSponsor(self, sponsor);

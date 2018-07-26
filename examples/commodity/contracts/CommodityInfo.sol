@@ -61,17 +61,7 @@ contract CommodityInfo {
         return this.$creditPlan();
     }
 
-    /// @notice The msg sender will sponsor the contract
-    function sponsor() public {
-        this.$sponsor();
-    }
-
-    /// @notice The msg sender will remove it from the sponsor list.
-    function unsponsor() public {
-        this.$unsponsor();
-    }
-
-    /// @notice To check if the msg sender is a sponsor.
+    /// @notice To check if account '_sponsor' is a sponsor.
     function isSponsor(address _sponsor) public view returns(bool) {
         return this.$isSponsor(_sponsor);
     }
