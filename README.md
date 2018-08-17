@@ -8,9 +8,9 @@ The builtin contracts including "authority.sol", "energy.sol", "extension.sol", 
 - `authority.sol`
 
     Authority is related to the POA(proof of authority) consensus mechanism.
-The Authority contract manages a list of candidates propsers who is responsible for packing transactions into a block.
-The propsers are authorized by a voting committee, but only the first 101 propsers in the candidates list can pack block.
-A candidates propser include signer address, endorsor address and identity.
+The Authority contract manages a list of candidates proposers who is responsible for packing transactions into a block.
+The proposers are authorized by a voting committee, but only the first 101 proposers in the candidates list can pack block.
+A candidates proposer include signer address, endorsor address and identity.
 Signer address is releated to sign a block, endorsor address is used for charging miner's fee and identity is used for identifying the proposer.
 
 - `energy.sol`
