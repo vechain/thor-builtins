@@ -310,4 +310,4 @@ Only the master or users of the contract have authority to add commodity informa
 
     Voting intends to modify governance params "BaseGasPrice" in VechainThor by executor.
 First a voting will be proposed by an approver, and the approvers will vote for it over the course of a week.
-If two thirds of approvers approver the voting, the vote can be executed.
+If two thirds of the approvers approve the voting, the vote can be executed.
