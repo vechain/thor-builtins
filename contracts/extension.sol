@@ -25,6 +25,5 @@ interface Extension {
     function txExpiration() external view returns(uint);
 
     /// @notice Get the account that pays the TX fee at runtime. 
-    /// It is implemented due to the fact that there are two transaction-fee-delegation protocols (MPP and VIP191) running on VechainThor.
     function txGasPayer() external view returns(address);
 }
