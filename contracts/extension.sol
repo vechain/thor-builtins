@@ -23,4 +23,7 @@ interface Extension {
     function txID() external view returns(bytes32);
     function txBlockRef() external view returns(bytes8);
     function txExpiration() external view returns(uint);
+
+    /// @notice Get the account that pays the TX fee at runtime. 
+    function txGasPayer() external view returns(address);
 }
