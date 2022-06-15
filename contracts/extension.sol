@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+=======
 pragma solidity ^0.4.23;
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008
 
 /// @title Extension extends EVM functions.
 /// Extension gives an opportunity for the developer to get information of the current transaction and any history block within the range of genesis to best block.
@@ -7,6 +12,34 @@ pragma solidity ^0.4.23;
 
 interface Extension {
     /// @notice blake2b256 computes blake2b-256 checksum for given data.
+<<<<<<< HEAD
+    function blake2b256(bytes calldata _value) external view returns (bytes32);
+
+    /// @notice These functions return corresponding block info from genesis to best block.
+    function blockID(uint256 num) external view returns (bytes32);
+
+    function blockTotalScore(uint256 num) external view returns (uint64);
+
+    function blockTime(uint256 num) external view returns (uint256);
+
+    function blockSigner(uint256 num) external view returns (address);
+
+    /// @return total supply of VET
+    function totalSupply() external view returns (uint256);
+
+    /// @notice These funtions return corresponding current transaction info.
+    function txProvedWork() external view returns (uint256);
+
+    function txID() external view returns (bytes32);
+
+    function txBlockRef() external view returns (bytes8);
+
+    function txExpiration() external view returns (uint256);
+
+    /// @notice Get the account that pays the TX fee at runtime.
+    function txGasPayer() external view returns (address);
+}
+=======
     function blake2b256(bytes _value) external view returns(bytes32);
 
     /// @notice These functions return corresponding block info from genesis to best block.
@@ -27,3 +60,4 @@ interface Extension {
     /// @notice Get the account that pays the TX fee at runtime. 
     function txGasPayer() external view returns(address);
 }
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008

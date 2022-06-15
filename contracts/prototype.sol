@@ -1,8 +1,17 @@
+<<<<<<< HEAD
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+// Prototype is an account management model of VeChainThor.
+// In the account management model every contract has a master account, which, by default, is the creator of a contract.
+// The master account plays the role of a contract manager, which has some authorities including
+=======
 pragma solidity ^0.4.23;
 
 // Prototype is an account management model of VeChainThor.
 // In the account management model every contract has a master account, which, by default, is the creator of a contract.
 // The master account plays the role of a contract manager, which has some authorities including 
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008
 // "setMaster", "setCreditPlan", "addUser", "removeUser" and "selectSponsor".
 // Every contract keeps a list of users who can call the contract for free but limited by credit.
 // The user of a specific contract can be either added or removed by the contract master.
@@ -11,13 +20,21 @@ pragma solidity ^0.4.23;
 // A contract may have more than one sponsors, but only the current sponsor chosen by master need to pay the fee for the contract.
 // If the current sponsor is out of energy, master can select sponser from other sponsers candidates by calling selectSponsor function.
 // The creditPlan can be set by the master which includes credit and recoveryRate. Every user have the same original credit.
+<<<<<<< HEAD
+// Every Transaction consumes some amount of credit which is equal to the fee of the Transaction, and the user can also pay the fee by itself if the gas payer is out of the credit.
+=======
 // Every Transaction consumes some amount of credit which is equal to the fee of the Transaction, and the user can also pay the fee by itself if the gas payer is out of the credit. 
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008
 // The credit can be recovered based on recoveryRate (per block).
 
 interface Prototype {
     /// @param self contract address
     /// @return master address of self
+<<<<<<< HEAD
+    function master(address self) external view returns (address);
+=======
     function master(address self) external view returns(address);
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008
 
     /// @notice 'newMaster' will be set to contract 'self' and this function only works when msg sender is the old master.
     /// @param self contract address
@@ -27,11 +44,59 @@ interface Prototype {
     /// @param self account address which may be contract account or external account address.
     /// @param blockNumber balance will be calculated at blockNumber
     /// @return the amount of VET at blockNumber
+<<<<<<< HEAD
+    function balance(address self, uint256 blockNumber)
+        external
+        view
+        returns (uint256);
+=======
     function balance(address self, uint blockNumber) external view returns(uint256);
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008
 
     /// @param self account address which may be contract account or external account address.
     /// @param blockNumber energy will be calculated at blockNumber
     /// @return the amount of energy at blockNumber
+<<<<<<< HEAD
+    function energy(address self, uint256 blockNumber)
+        external
+        view
+        returns (uint256);
+
+    /// @param self check if address self is a contract account
+    function hasCode(address self) external view returns (bool);
+
+    /// @param self contract address
+    /// @return value indexed by key at self storage
+    function storageFor(address self, bytes32 key)
+        external
+        view
+        returns (bytes32);
+
+    /// @param self contract address
+    /// @return credit Plan of contract 'self'
+    function creditPlan(address self)
+        external
+        view
+        returns (uint256 credit, uint256 recoveryRate);
+
+    /// @param self contract address
+    /// @param credit original credit
+    /// @param recoveryRate recovery rate of credit
+    function setCreditPlan(
+        address self,
+        uint256 credit,
+        uint256 recoveryRate
+    ) external;
+
+    /// @notice check if address 'user' is the user of contract 'self'.
+    function isUser(address self, address user) external view returns (bool);
+
+    /// @notice return the current credit of 'user' of the contract 'self'.
+    function userCredit(address self, address user)
+        external
+        view
+        returns (uint256);
+=======
     function energy(address self, uint blockNumber) external view returns(uint256);
 
     /// @param self check if address self is a contract account
@@ -55,6 +120,7 @@ interface Prototype {
 
     /// @notice return the current credit of 'user' of the contract 'self'.
     function userCredit(address self, address user) external view returns(uint256);
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008
 
     /// @notice add address 'user' to the user list of a contract 'self'.
     function addUser(address self, address user) external;
@@ -64,11 +130,28 @@ interface Prototype {
 
     /// @notice msg sender volunteers to be a sponsor of the contract 'self'.
     function sponsor(address self) external;
+<<<<<<< HEAD
+
+=======
  
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008
     /// @notice msg sender removes itself from the sponsor candidates list of contract 'self'.
     function unsponsor(address self) external;
 
     /// @notice check if 'sponsorAddress' is the sponser of contract 'self'.
+<<<<<<< HEAD
+    function isSponsor(address self, address sponsorAddress)
+        external
+        view
+        returns (bool);
+
+    /// @notice select 'sponsorAddress' to be current selected sponsor of contract 'self'
+    function selectSponsor(address self, address sponsorAddress) external;
+
+    /// @notice return current selected sponsor of contract 'self'
+    function currentSponsor(address self) external view returns (address);
+}
+=======
     function isSponsor(address self, address sponsorAddress) external view returns(bool);
 
     /// @notice select 'sponsorAddress' to be current selected sponsor of contract 'self'
@@ -77,3 +160,4 @@ interface Prototype {
     /// @notice return current selected sponsor of contract 'self'
     function currentSponsor(address self) external view returns(address);
 }
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008

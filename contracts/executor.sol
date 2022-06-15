@@ -1,17 +1,34 @@
+<<<<<<< HEAD
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+/// @title Executor represents core component for on-chain governance.
+=======
 pragma solidity ^0.4.23;
 
 /// @title Executor represents core component for on-chain governance. 
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008
 /// The on-chain governance params can be changed by the Executor through a voting.
 /// A executive committee are composed to seven approvers who had been added to the contract Executor in the genesis block.
 /// The new approver can be added and the old approver also can be removed from the executive committee.
 /// The steps of executor include proposing, approving and executing voting if the voting was passed.
 /// Only the approver in the executive committee has the authority to propose and approving a voting.
 
+<<<<<<< HEAD
+interface Executor {
+    /// @notice proposing a voting from a approver
+    /// @param _target a contract address, it will be executed if the voting is passed.
+    /// @param _data call data, usually composed to method ID plus input data.
+    function propose(address _target, bytes calldata _data)
+        external
+        returns (bytes32);
+=======
 interface Executor {    
     /// @notice proposing a voting from a approver
     /// @param _target a contract address, it will be executed if the voting is passed.
     /// @param _data call data, usually composed to method ID plus input data.
     function propose(address _target, bytes _data) external returns(bytes32);
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008
 
     /// @notice approving a voting from a approver
     /// @param _proposalID identify a voting
@@ -35,4 +52,8 @@ interface Executor {
 
     /// @notice detach a voting
     function detachVotingContract(address _contract) external;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2a3dd28256aface1c985f3944516b99604ded008
